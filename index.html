@@ -1380,3 +1380,1384 @@ document.addEventListener(
 </html>
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+      content="Warish111 - Cyber Security, Coding, Android and Web Development">
+
+<title>Warish111 | Cyber Lab</title>
+
+<style>
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #020506;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   MATRIX BACKGROUND
+========================================= */
+
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: -5;
+
+    opacity: 0.18;
+}
+
+
+/* =========================================
+   MOUSE / TOUCH GLOW
+========================================= */
+
+#glow {
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,255,136,0.22) 0%,
+            rgba(0,255,136,0.10) 25%,
+            rgba(0,255,136,0.03) 50%,
+            transparent 72%
+        );
+
+    transform:
+        translate(-50%, -50%);
+
+    filter: blur(5px);
+
+    opacity: 0;
+
+    transition:
+        opacity 0.3s ease,
+        width 0.2s ease,
+        height 0.2s ease;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+nav {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 16px 7%;
+
+    background:
+        rgba(2,5,6,0.88);
+
+    backdrop-filter:
+        blur(12px);
+
+    border-bottom:
+        1px solid
+        rgba(0,255,136,0.25);
+
+    box-shadow:
+        0 0 25px
+        rgba(0,255,136,0.08);
+}
+
+
+/* LOGO */
+
+.logo {
+
+    font-size: 23px;
+
+    font-weight: bold;
+
+    color: #00ff88;
+
+    text-shadow:
+        0 0 5px #00ff88,
+        0 0 15px #00ff88,
+        0 0 30px #00ff88;
+
+    animation:
+        logoGlow 2s infinite alternate;
+}
+
+
+nav a {
+
+    color: #ddd;
+
+    text-decoration: none;
+
+    margin-left: 20px;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+
+nav a:hover {
+
+    color: #00ff88;
+
+    text-shadow:
+        0 0 10px #00ff88;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding:
+        120px 20px 70px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   NEON GRID
+========================================= */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -50%;
+    bottom: -30%;
+
+    width: 200%;
+    height: 100%;
+
+    background-image:
+
+        linear-gradient(
+            rgba(0,255,136,0.18)
+            1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0,255,136,0.18)
+            1px,
+            transparent 1px
+        );
+
+    background-size:
+        50px 50px;
+
+    transform:
+        perspective(500px)
+        rotateX(60deg);
+
+    transform-origin:
+        center bottom;
+
+    animation:
+        gridAnimation 5s
+        linear infinite;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 30%,
+            black
+        );
+
+    pointer-events: none;
+}
+
+
+@keyframes gridAnimation {
+
+    from {
+        background-position:
+            0 0;
+    }
+
+    to {
+        background-position:
+            0 50px;
+    }
+}
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 850px;
+}
+
+
+/* BIG TITLE */
+
+.hero h1 {
+
+    font-size:
+        clamp(
+            50px,
+            12vw,
+            100px
+        );
+
+    color: #00ff88;
+
+    letter-spacing:
+        5px;
+
+    text-shadow:
+
+        0 0 5px #00ff88,
+
+        0 0 10px #00ff88,
+
+        0 0 20px #00ff88,
+
+        0 0 40px #00ff88,
+
+        0 0 80px
+        rgba(0,255,136,0.7);
+
+    animation:
+        titleGlow
+        2s
+        infinite
+        alternate;
+}
+
+
+.hero h2 {
+
+    margin-top: 10px;
+
+    font-size:
+        clamp(
+            20px,
+            5vw,
+            32px
+        );
+
+    color: white;
+
+    text-shadow:
+        0 0 10px
+        rgba(0,255,136,0.8);
+}
+
+
+.hero p {
+
+    max-width: 680px;
+
+    margin:
+        20px auto;
+
+    color: #aeb8bd;
+
+    font-size: 17px;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.buttons {
+
+    margin-top: 30px;
+}
+
+
+.btn {
+
+    display: inline-block;
+
+    padding:
+        13px 25px;
+
+    margin: 7px;
+
+    border:
+        1px solid #00ff88;
+
+    border-radius:
+        8px;
+
+    color:
+        #00ff88;
+
+    text-decoration:
+        none;
+
+    font-weight:
+        bold;
+
+    background:
+        rgba(0,255,136,0.03);
+
+    box-shadow:
+
+        0 0 7px
+        rgba(0,255,136,0.4),
+
+        inset 0 0 7px
+        rgba(0,255,136,0.1);
+
+    transition:
+        0.3s;
+}
+
+
+.btn:hover {
+
+    background:
+        #00ff88;
+
+    color:
+        #020506;
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+
+        0 0 10px #00ff88,
+
+        0 0 25px #00ff88,
+
+        0 0 50px #00ff88;
+}
+
+
+/* =========================================
+   TERMINAL
+========================================= */
+
+.terminal {
+
+    max-width:
+        700px;
+
+    margin:
+        35px auto 0;
+
+    padding:
+        22px;
+
+    text-align:
+        left;
+
+    background:
+        rgba(0,0,0,0.75);
+
+    border:
+        1px solid
+        rgba(0,255,136,0.5);
+
+    border-radius:
+        10px;
+
+    color:
+        #00ff88;
+
+    font-family:
+        monospace;
+
+    box-shadow:
+
+        0 0 10px
+        rgba(0,255,136,0.4),
+
+        0 0 30px
+        rgba(0,255,136,0.15);
+
+    animation:
+        terminalPulse
+        3s
+        infinite
+        alternate;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+section {
+
+    position:
+        relative;
+
+    z-index:
+        5;
+
+    padding:
+        90px 7%;
+}
+
+
+.section-title {
+
+    text-align:
+        center;
+
+    color:
+        #00ff88;
+
+    font-size:
+        35px;
+
+    margin-bottom:
+        40px;
+
+    text-shadow:
+
+        0 0 5px #00ff88,
+
+        0 0 15px #00ff88,
+
+        0 0 30px
+        rgba(0,255,136,0.5);
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about {
+
+    max-width:
+        800px;
+
+    margin:
+        auto;
+
+    text-align:
+        center;
+
+    color:
+        #b8c1c7;
+
+    font-size:
+        17px;
+}
+
+
+/* =========================================
+   PROJECT CARDS
+========================================= */
+
+.cards {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                220px,
+                1fr
+            )
+        );
+
+    gap:
+        25px;
+
+    max-width:
+        1100px;
+
+    margin:
+        auto;
+}
+
+
+.card {
+
+    background:
+        rgba(7,13,15,0.9);
+
+    border:
+        1px solid
+        rgba(0,255,136,0.2);
+
+    border-radius:
+        14px;
+
+    padding:
+        30px;
+
+    transition:
+        0.35s;
+
+    box-shadow:
+        0 0 10px
+        rgba(0,255,136,0.05);
+}
+
+
+.card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        #00ff88;
+
+    box-shadow:
+
+        0 0 10px
+        rgba(0,255,136,0.6),
+
+        0 0 30px
+        rgba(0,255,136,0.2),
+
+        inset 0 0 20px
+        rgba(0,255,136,0.05);
+}
+
+
+.card h3 {
+
+    color:
+        #00ff88;
+
+    margin-bottom:
+        12px;
+
+    text-shadow:
+        0 0 10px
+        rgba(0,255,136,0.6);
+}
+
+
+.card p {
+
+    color:
+        #aeb8bd;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact {
+
+    text-align:
+        center;
+
+    color:
+        #b8c1c7;
+
+    font-size:
+        17px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    position:
+        relative;
+
+    z-index:
+        5;
+
+    text-align:
+        center;
+
+    padding:
+        30px;
+
+    border-top:
+        1px solid
+        rgba(0,255,136,0.2);
+
+    color:
+        #6f7b80;
+
+    box-shadow:
+        0 -5px 20px
+        rgba(0,255,136,0.04);
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes logoGlow {
+
+    from {
+
+        text-shadow:
+            0 0 5px #00ff88,
+            0 0 10px #00ff88;
+    }
+
+    to {
+
+        text-shadow:
+            0 0 10px #00ff88,
+            0 0 25px #00ff88,
+            0 0 45px #00ff88;
+    }
+}
+
+
+@keyframes titleGlow {
+
+    from {
+
+        text-shadow:
+            0 0 5px #00ff88,
+            0 0 15px #00ff88,
+            0 0 30px #00ff88;
+    }
+
+    to {
+
+        text-shadow:
+            0 0 10px #00ff88,
+            0 0 30px #00ff88,
+            0 0 60px #00ff88,
+            0 0 100px
+            rgba(0,255,136,0.7);
+    }
+}
+
+
+@keyframes terminalPulse {
+
+    from {
+
+        box-shadow:
+            0 0 8px
+            rgba(0,255,136,0.2);
+    }
+
+    to {
+
+        box-shadow:
+            0 0 20px
+            rgba(0,255,136,0.5),
+
+            0 0 40px
+            rgba(0,255,136,0.15);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    nav {
+
+        flex-direction:
+            column;
+
+        gap:
+            10px;
+
+        padding:
+            13px 5%;
+    }
+
+
+    nav a {
+
+        margin:
+            0 6px;
+
+        font-size:
+            12px;
+    }
+
+
+    .hero {
+
+        padding:
+            130px 15px 60px;
+    }
+
+
+    .hero h1 {
+
+        letter-spacing:
+            2px;
+    }
+
+
+    .terminal {
+
+        font-size:
+            12px;
+
+        padding:
+            16px;
+    }
+
+
+    section {
+
+        padding:
+            70px 5%;
+    }
+
+
+    .section-title {
+
+        font-size:
+            30px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     MATRIX CANVAS
+====================================== -->
+
+<canvas id="matrix"></canvas>
+
+
+<!-- =====================================
+     MOUSE / TOUCH GLOW
+====================================== -->
+
+<div id="glow"></div>
+
+
+<!-- =====================================
+     NAVIGATION
+====================================== -->
+
+<nav>
+
+    <div class="logo">
+        Warish111
+    </div>
+
+    <div>
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#projects">
+            Projects
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================
+     HERO
+====================================== -->
+
+<section
+    class="hero"
+    id="home"
+>
+
+    <div class="hero-content">
+
+        <h1>
+            WARISH111
+        </h1>
+
+        <h2>
+            Cyber • Code • Create
+        </h2>
+
+        <p>
+            Welcome to Warish111 — a personal
+            cyber lab for coding, web development,
+            Android projects and cybersecurity
+            learning.
+        </p>
+
+
+        <div class="buttons">
+
+            <a
+                class="btn"
+                href="https://github.com/warish828/Warish111"
+                target="_blank"
+            >
+                View GitHub
+            </a>
+
+
+            <a
+                class="btn"
+                href="#projects"
+            >
+                Explore Projects
+            </a>
+
+        </div>
+
+
+        <div class="terminal">
+
+            $ whoami<br>
+
+            <span>
+                warish828
+            </span>
+
+            <br><br>
+
+            $ status<br>
+
+            <span>
+                ONLINE • BUILDING • LEARNING
+            </span>
+
+            <br><br>
+
+            $ system<br>
+
+            <span>
+                Warish Cyber Lab
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     ABOUT
+====================================== -->
+
+<section id="about">
+
+    <h2 class="section-title">
+        About
+    </h2>
+
+
+    <div class="about">
+
+        <p>
+
+            Hi, I'm Warish.
+
+            This is my personal digital lab
+            where I build coding projects,
+            websites, Android applications
+            and cybersecurity learning projects.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     PROJECTS
+====================================== -->
+
+<section id="projects">
+
+    <h2 class="section-title">
+        Projects
+    </h2>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>
+                Cyber Security
+            </h3>
+
+            <p>
+
+                Cybersecurity learning,
+                ethical security testing
+                and security experiments.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Android
+            </h3>
+
+            <p>
+
+                Android applications,
+                experiments and mobile
+                development projects.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Web Development
+            </h3>
+
+            <p>
+
+                Modern HTML, CSS and
+                JavaScript websites
+                and experiments.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>
+                Termux
+            </h3>
+
+            <p>
+
+                Linux tools, Python,
+                shell scripting and
+                development experiments.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     CONTACT
+====================================== -->
+
+<section id="contact">
+
+    <h2 class="section-title">
+        Connect
+    </h2>
+
+
+    <div class="contact">
+
+        <p>
+            Explore my projects on GitHub.
+        </p>
+
+
+        <div class="buttons">
+
+            <a
+                class="btn"
+                href="https://github.com/warish828"
+                target="_blank"
+            >
+                GitHub Profile
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     FOOTER
+====================================== -->
+
+<footer>
+
+    © 2026 Warish111
+    • Built with HTML, CSS & JavaScript
+
+</footer>
+
+
+<!-- =====================================
+     JAVASCRIPT
+====================================== -->
+
+<script>
+
+
+/* =====================================
+   MATRIX RAIN
+===================================== */
+
+const canvas =
+    document.getElementById("matrix");
+
+const ctx =
+    canvas.getContext("2d");
+
+
+let fontSize = 16;
+
+let columns;
+
+let drops;
+
+
+const chars =
+    "01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$%&@<>[]{}";
+
+
+function resizeMatrix() {
+
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+
+
+    columns =
+        Math.floor(
+            canvas.width / fontSize
+        );
+
+
+    drops =
+        Array(columns)
+        .fill(1);
+}
+
+
+function matrixRain() {
+
+    ctx.fillStyle =
+        "rgba(2,5,6,0.08)";
+
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    ctx.font =
+        fontSize +
+        "px monospace";
+
+
+    for (
+        let i = 0;
+        i < drops.length;
+        i++
+    ) {
+
+        const character =
+            chars[
+                Math.floor(
+                    Math.random() *
+                    chars.length
+                )
+            ];
+
+
+        const x =
+            i * fontSize;
+
+
+        const y =
+            drops[i] *
+            fontSize;
+
+
+        ctx.fillStyle =
+            "#00ff88";
+
+
+        ctx.fillText(
+            character,
+            x,
+            y
+        );
+
+
+        if (
+            y >
+            canvas.height
+            &&
+            Math.random() >
+            0.975
+        ) {
+
+            drops[i] = 0;
+        }
+
+
+        drops[i]++;
+    }
+}
+
+
+resizeMatrix();
+
+
+window.addEventListener(
+    "resize",
+    resizeMatrix
+);
+
+
+setInterval(
+    matrixRain,
+    45
+);
+
+
+/* =====================================
+   GLOW EFFECT
+===================================== */
+
+const glow =
+    document.getElementById("glow");
+
+
+function moveGlow(x, y) {
+
+    glow.style.left =
+        x + "px";
+
+    glow.style.top =
+        y + "px";
+}
+
+
+/* =====================================
+   MOUSE
+===================================== */
+
+document.addEventListener(
+    "mousemove",
+    function(event) {
+
+        glow.style.opacity =
+            "1";
+
+        moveGlow(
+            event.clientX,
+            event.clientY
+        );
+
+    }
+);
+
+
+/* =====================================
+   TOUCH
+===================================== */
+
+document.addEventListener(
+    "touchstart",
+    function(event) {
+
+        if (
+            !event.touches.length
+        ) {
+            return;
+        }
+
+
+        const touch =
+            event.touches[0];
+
+
+        glow.style.opacity =
+            "1";
+
+
+        glow.style.width =
+            "350px";
+
+        glow.style.height =
+            "350px";
+
+
+        moveGlow(
+            touch.clientX,
+            touch.clientY
+        );
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+document.addEventListener(
+    "touchmove",
+    function(event) {
+
+        if (
+            !event.touches.length
+        ) {
+            return;
+        }
+
+
+        const touch =
+            event.touches[0];
+
+
+        glow.style.opacity =
+            "1";
+
+
+        moveGlow(
+            touch.clientX,
+            touch.clientY
+        );
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+document.addEventListener(
+    "touchend",
+    function() {
+
+        glow.style.opacity =
+            "0";
+
+        glow.style.width =
+            "300px";
+
+        glow.style.height =
+            "300px";
+
+    }
+);
+
+
+</script>
+
+
+</body>
+</html>
+
