@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WARISH111 | Cyber Lab</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #02040a;
+    color: #fff;
+    font-family: monospace;
+    overflow-x: hidden;
+}
+
+/* MATRIX */
+#matrix {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    opacity: 0.28;
+}
+
+/* MOUSE GLOW */
+#glow {
+    position: fixed;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(
+        circle,
+        rgba(0,255,255,.18),
+        transparent 70%
+    );
+    transform: translate(-50%, -50%);
+    z-index: 20;
+}
+
+/* GRID */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(rgba(0,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,255,.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    transform: perspective(500px) rotateX(60deg) scale(2);
+    transform-origin: center bottom;
+    animation: gridMove 5s linear infinite;
+}
+
+@keyframes gridMove {
+    from {
+        background-position: 0 0, 0 0;
+    }
+    to {
+        background-position: 0 40px, 40px 0;
+    }
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,.75);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #00ffff55;
+    z-index: 10;
+}
+
+.logo {
+    color: #00ffff;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow:
+        0 0 5px #00ffff,
+        0 0 15px #00ffff,
+        0 0 30px #00ffff;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-box {
+    max-width: 900px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 12vw, 130px);
+    color: #00ffff;
+    letter-spacing: 8px;
+    text-shadow:
+        0 0 5px #00ffff,
+        0 0 15px #00ffff,
+        0 0 35px #00ffff,
+        0 0 70px #0088ff;
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        filter: brightness(.8);
+    }
+    to {
+        filter: brightness(1.4);
+    }
+}
+
+.hero p {
+    font-size: 18px;
+    color: #bbb;
+    margin: 20px 0 30px;
+}
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border: 1px solid #00ffff;
+    color: #00ffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: .3s;
+    box-shadow:
+        0 0 8px #00ffff55,
+        inset 0 0 8px #00ffff22;
+}
+
+.btn:hover {
+    background: #00ffff;
+    color: #000;
+    box-shadow:
+        0 0 10px #00ffff,
+        0 0 30px #00ffff,
+        0 0 60px #00ffff;
+    transform: translateY(-3px);
+}
+
+/* SECTIONS */
+section {
+    padding: 100px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 35px;
+    color: #00ffff;
+    margin-bottom: 50px;
+    text-shadow: 0 0 15px #00ffff;
+}
+
+/* CARDS */
+.cards {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    padding: 30px;
+    background: rgba(0, 10, 20, .75);
+    border: 1px solid #00ffff55;
+    border-radius: 12px;
+    transition: .4s;
+    box-shadow: 0 0 15px #00ffff11;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #00ffff;
+    box-shadow:
+        0 0 10px #00ffff,
+        0 0 30px #00ffff44;
+}
+
+.card h3 {
+    color: #00ffff;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #aaa;
+    line-height: 1.7;
+}
+
+/* TERMINAL */
+.terminal {
+    max-width: 900px;
+    margin: auto;
+    padding: 25px;
+    background: #000;
+    border: 1px solid #00ff88;
+    border-radius: 10px;
+    box-shadow:
+        0 0 15px #00ff8844,
+        inset 0 0 20px #00ff8811;
+    color: #00ff88;
+    line-height: 1.8;
+}
+
+.green {
+    color: #00ff88;
+}
+
+.cyan {
+    color: #00ffff;
+}
+
+/* CONTACT */
+.contact {
+    text-align: center;
+}
+
+.contact p {
+    color: #aaa;
+    margin-bottom: 25px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #00ffff33;
+    color: #777;
+}
+
+footer span {
+    color: #00ffff;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+    nav {
+        padding: 15px;
+    }
+
+    nav .links {
+        display: none;
+    }
+
+    .hero h1 {
+        letter-spacing: 3px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    section {
+        padding: 70px 20px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+<div id="glow"></div>
+
+<nav>
+    <div class="logo">WARISH111</div>
+
+    <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-box">
+
+        <h1>WARISH111</h1>
+
+        <p>
+            CYBER • CODE • TECHNOLOGY • DIGITAL LAB
+        </p>
+
+        <div class="buttons">
+            <a class="btn"
+               href="https://github.com/warish828"
+               target="_blank">
+                GitHub
+            </a>
+
+            <a class="btn" href="#projects">
+                Explore
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+    <h2 class="section-title">ABOUT</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>⚡ Coding</h3>
+            <p>
+                Programming, web development and
+                experimental technology projects.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🛡 Cyber Lab</h3>
+            <p>
+                Learning cybersecurity concepts,
+                Linux, networking and defensive security.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🚀 Projects</h3>
+            <p>
+                Building useful open-source projects
+                and experimenting with new ideas.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+
+    <h2 class="section-title">PROJECTS</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Warish Code Lab</h3>
+            <p>
+                A personal cyber and coding laboratory
+                for experiments and projects.
+            </p>
+
+            <br>
+
+            <a class="btn"
+               href="https://github.com/warish828/Warish111"
+               target="_blank">
+                View Project
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Web Development</h3>
+            <p>
+                Modern HTML, CSS and JavaScript
+                experiments with futuristic UI.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Linux & Termux</h3>
+            <p>
+                Learning Linux environments,
+                command-line tools and automation.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TERMINAL -->
+<section>
+
+    <h2 class="section-title">SYSTEM TERMINAL</h2>
+
+    <div class="terminal">
+
+        <div>
+            <span class="green">warish@cyberlab</span>:~$
+            <span class="cyan">whoami</span>
+        </div>
+
+        <div>Warish111</div>
+
+        <br>
+
+        <div>
+            <span class="green">warish@cyberlab</span>:~$
+            <span class="cyan">status</span>
+        </div>
+
+        <div>
+            SYSTEM: ONLINE<br>
+            NETWORK: ACTIVE<br>
+            SECURITY: ENABLED<br>
+            STATUS: READY
+        </div>
+
+        <br>
+
+        <div>
+            <span class="green">warish@cyberlab</span>:~$
+            <span class="cyan">echo "Welcome"</span>
+        </div>
+
+        <div>Welcome to Warish111 Cyber Lab ⚡</div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <h2 class="section-title">CONTACT</h2>
+
+    <p>
+        Explore my projects and follow my coding journey.
+    </p>
+
+    <a class="btn"
+       href="https://github.com/warish828"
+       target="_blank">
+        GitHub Profile
+    </a>
+
+</section>
+
+<footer>
+    © 2026 <span>WARISH111</span> • Cyber Code Lab
+</footer>
+
+<script>
+
+/* MATRIX RAIN */
+
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+
+window.addEventListener("resize", resizeCanvas);
+
+const chars =
+"01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&@";
+
+const fontSize = 15;
+
+let columns = Math.floor(
+    window.innerWidth / fontSize
+);
+
+let drops = Array(columns).fill(1);
+
+function matrix() {
+
+    ctx.fillStyle = "rgba(0,0,0,0.06)";
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    ctx.fillStyle = "#00ffff";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+
+        const char =
+            chars[Math.floor(Math.random() * chars.length)];
+
+        ctx.fillText(
+            char,
+            i * fontSize,
+            drops[i] * fontSize
+        );
+
+        if (
+            drops[i] * fontSize > canvas.height &&
+            Math.random() > .975
+        ) {
+            drops[i] = 0;
+        }
+
+        drops[i]++;
+    }
+}
+
+setInterval(matrix, 40);
+
+
+/* MOUSE / TOUCH GLOW */
+
+const glow = document.getElementById("glow");
+
+function moveGlow(x, y) {
+    glow.style.left = x + "px";
+    glow.style.top = y + "px";
+}
+
+document.addEventListener("mousemove", function(e) {
+    moveGlow(e.clientX, e.clientY);
+});
+
+document.addEventListener("touchmove", function(e) {
+
+    if (e.touches.length > 0) {
+        moveGlow(
+            e.touches[0].clientX,
+            e.touches[0].clientY
+        );
+    }
+
+}, {passive: true});
+
+</script>
+
+</body>
+</html>
+
+
