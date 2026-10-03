@@ -319,6 +319,135 @@
 </body>
 </html>
 
+/* ===== NEON GLOW EFFECTS ===== */
+
+body {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(0, 255, 136, 0.12), transparent 35%),
+        #05070a;
+}
+
+/* Logo Glow */
+.logo {
+    text-shadow:
+        0 0 5px #00ff88,
+        0 0 10px #00ff88,
+        0 0 20px #00ff88;
+    animation: neonPulse 2s infinite alternate;
+}
+
+/* Main Heading Glow */
+.hero h1 {
+    text-shadow:
+        0 0 5px #00ff88,
+        0 0 10px #00ff88,
+        0 0 20px #00ff88,
+        0 0 40px rgba(0, 255, 136, 0.8);
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+/* Subtitle */
+.hero h2 {
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.7);
+}
+
+/* Buttons */
+.btn {
+    box-shadow:
+        0 0 5px rgba(0, 255, 136, 0.5),
+        inset 0 0 5px rgba(0, 255, 136, 0.1);
+}
+
+.btn:hover {
+    box-shadow:
+        0 0 10px #00ff88,
+        0 0 25px #00ff88,
+        0 0 50px rgba(0, 255, 136, 0.7);
+    transform: translateY(-3px) scale(1.03);
+}
+
+/* Cards */
+.card {
+    box-shadow:
+        0 0 8px rgba(0, 255, 136, 0.08);
+}
+
+.card:hover {
+    box-shadow:
+        0 0 10px rgba(0, 255, 136, 0.5),
+        0 0 25px rgba(0, 255, 136, 0.25),
+        inset 0 0 15px rgba(0, 255, 136, 0.05);
+}
+
+/* Terminal */
+.terminal {
+    box-shadow:
+        0 0 10px rgba(0, 255, 136, 0.25),
+        0 0 30px rgba(0, 255, 136, 0.1),
+        inset 0 0 15px rgba(0, 255, 136, 0.05);
+    animation: terminalGlow 3s ease-in-out infinite alternate;
+}
+
+/* Section titles */
+.section-title {
+    text-shadow:
+        0 0 5px #00ff88,
+        0 0 15px rgba(0, 255, 136, 0.7);
+}
+
+/* Navigation */
+nav {
+    box-shadow: 0 2px 20px rgba(0, 255, 136, 0.08);
+}
+
+/* Animations */
+
+@keyframes neonPulse {
+    from {
+        text-shadow:
+            0 0 5px #00ff88,
+            0 0 10px #00ff88;
+    }
+
+    to {
+        text-shadow:
+            0 0 5px #00ff88,
+            0 0 15px #00ff88,
+            0 0 30px #00ff88;
+    }
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow:
+            0 0 5px #00ff88,
+            0 0 15px #00ff88;
+    }
+
+    to {
+        text-shadow:
+            0 0 10px #00ff88,
+            0 0 25px #00ff88,
+            0 0 50px rgba(0, 255, 136, 0.8);
+    }
+}
+
+@keyframes terminalGlow {
+    from {
+        box-shadow:
+            0 0 8px rgba(0, 255, 136, 0.2);
+    }
+
+    to {
+        box-shadow:
+            0 0 20px rgba(0, 255, 136, 0.45),
+            0 0 40px rgba(0, 255, 136, 0.12);
+    }
+}
+
+
+
+
 
 
 
