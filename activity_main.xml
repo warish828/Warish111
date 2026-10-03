@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/black">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="22dp">
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="WARISH_" android:textColor="@color/green" android:textSize="34sp" android:textStyle="bold" android:fontFamily="monospace"/>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CYBER DEVELOPER • BUILDER" android:textColor="@color/cyan" android:textSize="13sp" android:fontFamily="monospace" android:layout_marginTop="4dp"/>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Welcome to my digital space. Coding, projects, experiments and updates — all in one place." android:textColor="@color/white" android:textSize="17sp" android:layout_marginTop="28dp"/>
+<Button android:id="@+id/instagramBtn" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="◎  INSTAGRAM" android:textColor="@color/black" android:backgroundTint="@color/green" android:layout_marginTop="22dp"/>
+<Button android:id="@+id/websiteBtn" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="⌂  MY WEBSITE" android:textColor="@color/white" android:backgroundTint="@color/card" android:layout_marginTop="10dp"/>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="// WHAT'S INSIDE" android:textColor="@color/cyan" android:textSize="14sp" android:fontFamily="monospace" android:layout_marginTop="28dp"/>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="01  About Warish
+
+02  Coding Projects
+
+03  Linux / Termux
+
+04  Latest Updates
+
+05  Contact" android:textColor="@color/white" android:textSize="16sp" android:fontFamily="monospace" android:layout_marginTop="12dp"/>
+<TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="&#10;&gt; keep_building();&#10;&gt; stay_curious();&#10;&gt; ship_it();" android:textColor="@color/green" android:textSize="15sp" android:fontFamily="monospace" android:layout_marginTop="20dp"/>
+</LinearLayout></ScrollView>
